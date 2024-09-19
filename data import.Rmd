@@ -1,25 +1,22 @@
 ---
-title: "data import"
+title: "Data import"
 output: github_document
 ---
 
-I'm an R Markdown document! 
-
-# Section 1
-
-Here's a **code chunk** that samples from 
-a _normal distribution_:
-
 ```{r setup}
 library(tidyverse)
+```
 
-library(readr)
-FAS_litters <- read_csv("data_import_examples/FAS_litters.csv")
-View(FAS_litters)ge
+the shortcut for r code chunk is option+command+i
+
+##Read in some data
+
+Read in the litters dataset
+
+```{r}
+litters_df=read_csv("./data/FAS_litters.csv")
+litters_df=janitor::clean_names(litters_df)
 ```
 
 
-# Section 2
-
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+##take a look at the data 
