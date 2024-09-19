@@ -69,7 +69,22 @@ pulse_df=read_sas("./data/public_pulse_data.sas7bdat")
 pulse_df
 ```
 
+## comparsion with vasic R
+what about `read.csv ...?this is basic R language built in function
 
+never use read.csv, always use read_csv
+
+let's see what happen
+
+`
+```{r}
+litters_base=read.csv("./data/FAS_litters.csv")
+litters_readr=read_csv("./data/FAS_litters.csv")
+
+litters_base
+litters_readr
+```
+litters_base would print all the rows, take more time to read at 
 
 
 
