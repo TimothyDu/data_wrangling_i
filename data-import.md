@@ -357,3 +357,13 @@ export the mlb sub-tibble
 ``` r
 write_csv(mlb_df,"./data/mlb_subtable.csv")
 ```
+
+never use this \$, do not use dollar sign in R
+
+``` r
+litters_df$l
+```
+
+    ## Warning: Unknown or uninitialised column: `l`.
+
+    ## NULL

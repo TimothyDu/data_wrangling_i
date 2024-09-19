@@ -95,7 +95,12 @@ export the mlb sub-tibble
 write_csv(mlb_df,"./data/mlb_subtable.csv")
 ```
 
+never use this $, do not use dollar sign in R
 
+
+```{r}
+litters_df$l
+```
 
 
 
