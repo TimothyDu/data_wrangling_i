@@ -349,3 +349,11 @@ litters_readr
     ## #   `Pups survive` <dbl>
 
 litters_base would print all the rows, take more time to read at
+
+\##export data
+
+export the mlb sub-tibble
+
+``` r
+write_csv(mlb_df,"./data/mlb_subtable.csv")
+```
