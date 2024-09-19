@@ -13,10 +13,35 @@ the shortcut for r code chunk is option+command+i
 
 Read in the litters dataset
 
+printing in the console
 ```{r}
 litters_df=read_csv("./data/FAS_litters.csv")
 litters_df=janitor::clean_names(litters_df)
 ```
-
+after the clean names everycolumn name will be displayed as snake case
 
 ##take a look at the data 
+```{r}
+litters_df
+```
+
+Only gives the first 6 rows,not used often
+```{r}
+head(litters_df)
+```
+
+
+check the last few rows in our dataset
+```{r}
+tail(litters_df)
+```
+
+the signal :: means I will use skim function in the skimr package
+```{r}
+skimr::skim(litters_df)
+```
+
+
+
+
+
