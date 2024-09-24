@@ -13,3 +13,62 @@ litters_df=read_csv("./data/FAS_litters.csv")
 litters_df=janitor::clean_names(litters_df)
 ```
 
+##`select` what we want to keep
+
+choose some columns and not others
+
+```{r}
+select(litters_df,group,litter_number)
+```
+
+```{r}
+select(litters_df,group,gd0_weight)
+```
+
+## we will choose columns from gd0_weight to gd_of_birth(all between)
+```{r}
+select(litters_df,group,gd0_weight:gd_of_birth)
+```
+
+
+## select what columns we want to lose
+```{r}
+select(litters_df,-litter_number)
+```
+
+##renaming columns, using select function, we get to keep what columns we want and rename them
+```{r}
+select(litters_df,GROUP=group,LITTer_NUmber=litter_number)
+```
+
+##in dplyer there is a delicated function used for renaming, rename function, this way we do not delete any columns, just rename
+```{r}
+rename(litters_df,GROUP=group,LITTer_NUmber=litter_number)
+```
+
+
+?select_helpers we are interested in funtions that let us select colums that i want to keep based on some criteria
+
+```{r}
+select(litters_df, starts_with("gd"))
+```
+
+
+##we move litter_number to the first column and keep everything else
+```{r}
+select(litters_df, litter_number,everything())
+```
+
+##use relacate function to relocate litter_number to first column
+```{r}
+relocate(litters_df,litter_number)
+```
+
+
+
+
+
+
+
+
+
