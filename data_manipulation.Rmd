@@ -125,6 +125,17 @@ mutate(litters_df,
        group = str_to_lower(group))
 ```
 
+##`arrange` put things in order
+we arrange the the data frame by pups_born_alive varaible from lowest to highest
+```{r}
+arrange(litters_df, pups_born_alive)
+```
+
+first arrange by pups_born_alive, then arrange by gd0_weight
+```{r}
+arrange(litters_df, pups_born_alive,gd0_weight)
+```
+
 
 
 
