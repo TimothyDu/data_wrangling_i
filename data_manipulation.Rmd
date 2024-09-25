@@ -3,13 +3,13 @@ title: "Data Manipulation"
 output: github_document
 ---
 
-```{r setup}
+```{r setup, echo=FALSE, message=FALSE}
 library(tidyverse)
 ```
 
 ## load the FAS litters data
 ```{r}
-litters_df=read_csv("./data/FAS_litters.csv")
+litters_df=read_csv("./data/FAS_litters.csv", na=c("NA","","."))
 litters_df=janitor::clean_names(litters_df)
 ```
 
@@ -111,6 +111,26 @@ filter(litters_df,group=="Mod8")
 ```{r}
 filter(litters_df,group %in% c("Con7","Mod8"))
 ```
+
+##Mutate modify an existing variable or creating a new variable
+creating a new variable wt_gain
+```{r}
+mutate(litters_df, wt_gain= gd18_weight- gd0_weight)
+```
+
+#modify variable group, make every rows are lowercase
+```{r}
+mutate(litters_df, 
+       wt_gain= gd18_weight- gd0_weight,
+       group = str_to_lower(group))
+```
+
+
+
+
+
+
+
 
 
 
