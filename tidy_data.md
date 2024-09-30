@@ -43,7 +43,7 @@ rewrite, combines and extend to add a mutate
 
 ``` r
  pulse_data=
-  haven::read_sas("./data/public_pulse_data.sas7bdat") %>% 
+  haven::read_sas("./data/public_pulse_data.sas7bdat",) %>% 
   janitor::clean_names()%>% 
   pivot_longer(
     bdi_score_bl:bdi_score_12m,
@@ -52,7 +52,32 @@ rewrite, combines and extend to add a mutate
     values_to="bdi"
   ) %>% 
   relocate(id,visit) %>% 
-  mutate(visit=recode(visit,"bl"="00m"))
+  mutate(visit=recode(visit,"bl"="00m")
+         )
 ```
 
 ## change the bl column to make the bl value into 00m
+
+## pivit wider
+
+make up some data!
+
+``` r
+analysis_result=
+  tibble(
+    group=c("treatment","treatment", "placebo", "placebo"),
+    time=c("pre","post","pre","post"),
+    mean=c(4,8,3.5,4)
+  )
+analysis_result %>% 
+pivot_wider(
+  names_from="time",
+  values_from="mean"
+          )
+```
+
+    ## # A tibble: 2 × 3
+    ##   group       pre  post
+    ##   <chr>     <dbl> <dbl>
+    ## 1 treatment   4       8
+    ## 2 placebo     3.5     4
